@@ -11,11 +11,11 @@
         KEY: "INVALID_KEYWORD"
     }
 
-    
-        const OperationsType = {
-            EXPENSE: 'EXPENSE',
-            INCOME: 'INCOME'
-        }
+
+    const OperationsType = {
+        EXPENSE: 'EXPENSE',
+        INCOME: 'INCOME'
+    }
 
     /**
      * this function add a operation from the wallet.
@@ -24,22 +24,19 @@
      *   amount: 120,
      *   description: 'Bill payment'
      * }
-     * @param {*} operation 
-     * @constructor ????
+     * @param {*} operation
      */
-    this.addOperation = function(operation) {
+    this.addOperation = function (operation) {
 
         // EXTRA, FIXATO VALIDATORE
         // 1. Estrarre questa validazione in un'altra funzione che prenda come parametro l'operazione e restituisca true o false-------------- ok
         // 2. Personalizzare l'errore ----------------------- ok 
         // 3. Esporta correttamente le funzioni nel contesto padre   ----------------------- ok
         // 4. aggiungere documentazione alle funzioni con commento (es jsdoc) ok 
-        if(!OperationsType[operation.type])
-            { throw new Error(WalletErrors.TYPE);}
-        if( operation.amount <= 0)
-            { throw new Error(WalletErrors.AMOUNT);}
-        if(!operation.description)
-            { throw new Error(WalletErrors.DESCRPT);}
+        if (!OperationsType[operation.type]) { throw new Error(WalletErrors.TYPE); }
+        if (!OperationsType[operation.type]) { throw new Error(WalletErrors.TYPE); }
+        if (operation.amount <= 0) { throw new Error(WalletErrors.AMOUNT); }
+        if (!operation.description) { throw new Error(WalletErrors.DESCRPT); }
         const operationToAdd = operation;
         operationToAdd.id = new Date().getTime();
         if (operationToAdd.type === OperationsType.EXPENSE) {
@@ -65,7 +62,7 @@
         }
         if (idToRemove === -1) {
             throw new Error(WalletErrors.NOT_FOUND);
-        } 
+        }
         const operation = operations[idToRemove];
         if (operation.type === OperationsType.INCOME) {
             balance -= operation.amount;
@@ -78,11 +75,10 @@
     /**
     * Find a list of operations which descriptions match at least partially the search value.
     * @param {string} searchValue
-    * @return {Array<{operation}>} 
+    * @return {Array<Object>} 
     */
     this.findOperations = function (searchValue) {
-        if(!searchValue || typeof searchValue ==="number")
-        { throw new Error(WalletErrors.KEY);}
+        if (!searchValue || !searchValue instanceof String) { throw new Error(WalletErrors.KEY); }
         const val = searchValue.toLowerCase().trim();
         const operationsFound = [];
         for (let i = 0; i < operations.length; i++) {
@@ -98,13 +94,13 @@
      * 
      * @return {number}  return actually Balance of the wallet
      */
-    this.getBalance = function() {
+    this.getBalance = function () {
         return balance;
     }
     /**
-     * @return {Array<{operation}>} Returns the operations list of the wallet
+     * @return {Array<Object>} <operation> Returns the operations list of the wallet
      */
-    this.getOperations = function() {
+    this.getOperations = function () {
         return operations
     }
 
