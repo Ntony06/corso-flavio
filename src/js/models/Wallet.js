@@ -27,11 +27,6 @@ function Wallet() {
      * @param {Operation} operation 
      */
     this.addOperation = function (operation) {
-        // 1. Estrarre questa validazione in un'altra funzione che prenda come parametro l'operazione
-        // e restituisca true o false
-        // 2. Personalizzare l'errore
-        // 3. Aggiungere validazione in altre funzioni che reputi opportune
-        // 4. Esporta correttamente le funzioni nel contesto padre
         if (!operation || !OperationsType[operation.type] || operation.amount <= 0 || !operation.description) {
             throw new Error(WalletErrors.INVALID_OPERATION);
         }

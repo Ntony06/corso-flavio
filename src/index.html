@@ -1,12 +1,62 @@
-<html>
-
-<head>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    />
     <title>Budget App</title>
-</head>
+  </head>
+  <body>
+    <header>
+      <!-- navbar -->
+      <div id="navBar" class="flex between">
+        <h2 id="title">Budget App</h2>
+        <h4 id="amountTitle">Saldo : € 0</h4>
+      </div>
+    </header>
 
-<body>
-    <!-- custom:js -->
-    <!-- endinject -->
-</body>
+    <main>
+      <!-- search -->
+      <form id="search">
+        <h5>search</h5>
+        <span class="four columns">
+          <input class="u-full-width" type="text" placeholder="search" />
+        </span>
+        <i class="fas fa-search" id="searchIcon"></i>
+      </form>
 
+      <div class="table">
+        <div class="flex around" style="margin-bottom: 10px">
+          <div id="description">description</div>
+          <div id="amount">amount</div>
+          <div id="date">date</div>
+          <div id="delete"></div>
+        </div>
+        <div class="flex around separatorMargin">
+          <div id="description">bill</div>
+          <div id="amount" style="color: negative-color">-100</div>
+          <div id="date">19/03/21</div>
+          <div id="delete"></div>
+        </div>
+      </div>
+
+      <!-- button + -->
+      <button id="addBtn" onclick="getElementById('id01')">
+        <i class="fas fa-plus"></i>
+      </button>
+    </main>
+
+    <footer>
+      <h4 id="devBy">By Antonio</h4>
+    </footer>
+  </body>
 </html>
